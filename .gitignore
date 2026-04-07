@@ -9,6 +9,9 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Secrets
+.gh-token
+
 # Editor
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
