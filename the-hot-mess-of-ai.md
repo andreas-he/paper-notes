@@ -90,6 +90,9 @@ It's a **proper scoring rule** — the optimal strategy is to report true belief
 
 - [[hot-mess-theory-of-ai-misalignment]] — Sohl-Dickstein's 2023 original theory that this paper empirically validates
 - [[inverse-scaling-test-time-compute]] — Gema et al. 2025 — complementary finding: more test-time compute can actively degrade performance. Hot Mess shows failures become incoherent with scale; Inverse Scaling shows more compute can hurt. Both challenge "more compute = better"
+- [[thought-anchors]] — causal attribution within CoT traces; tool for investigating *where* incoherent failures originate inside a single reasoning chain
+- [[thought-branches]] — branch point detection in reasoning; tool for finding *where* reasoning could have diverged toward a different (correct or incorrect) answer
+- [[research-inverse-scaling-incoherence]] — our research project applying these tools to explain *why* inverse scaling and incoherence occur
 
 ## Open Questions
 

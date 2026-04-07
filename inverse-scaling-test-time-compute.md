@@ -1,9 +1,9 @@
 ---
 title: "Inverse Scaling in Test-Time Compute"
-authors: [Gema et al.]
+authors: [Gema, Hägele, Chen, Arditi, Goldman-Wetzler, Fraser-Taliente, Sleight, Petrini, Michael, Alex, Minervini, Chen, Benton, Perez]
 year: 2025
-arxiv: ""
-url: ""
+arxiv: "2507.14417"
+url: "https://arxiv.org/abs/2507.14417"
 tags: [inverse-scaling, test-time-compute, reasoning, evaluation]
 status: reading
 date_read: 2026-04-07
@@ -21,7 +21,7 @@ code: ""
 
 ## Summary
 
-This paper demonstrates that extending reasoning length (more test-time compute) can reduce model accuracy on certain tasks. The authors identify several failure modes: models get distracted by irrelevant details, overfit misleading framings, latch onto spurious correlations, or lose track of constraints over long deduction chains. This challenges the assumption that more "thinking" always improves AI performance.
+Investigates when giving reasoning models more test-time compute actually degrades performance. Identifies failure patterns: increased distraction by irrelevant info, overfitting to problem formats, shifts toward spurious correlations, and reinforcement of flawed reasoning. Extended reasoning can amplify flawed reasoning patterns rather than correcting them.
 
 ## Key Contributions
 
@@ -40,6 +40,7 @@ This paper demonstrates that extending reasoning length (more test-time compute)
 
 ## Discussion Notes
 
+- Key insight: extended reasoning can *amplify* flawed reasoning patterns, not just fail to correct them
 - Complements Hot Mess: that paper shows errors become incoherent with model scale; this shows errors increase with reasoning scale
 - Together they paint a picture where "more" (bigger model, longer reasoning) isn't reliably "better"
 - The failure modes described (distraction, constraint loss) are candidate mechanisms for *why* inverse scaling happens — our research project aims to test these mechanistically
