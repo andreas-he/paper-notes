@@ -12,7 +12,7 @@ connections:
   - "[[inverse-scaling-test-time-compute]]"
   - "[[thought-anchors]]"
   - "[[thought-branches]]"
-  - "[[research-inverse-scaling-incoherence]]"
+  - "[[inverse-scaling-incoherence]]"
 code: ""
 ---
 
@@ -144,14 +144,14 @@ The survey ranking (Fig 4b) shows ρ=0.65 correlation between judged intelligenc
 - How does RLHF/fine-tuning affect coherence of failures?
 - Can the incoherence metric serve as a practical safety evaluation tool?
 - Could incoherent failure modes mask systematic deception?
-- What are the mechanistic origins of incoherence? → see [[research-inverse-scaling-incoherence]]
+- What are the mechanistic origins of incoherence? → see [[inverse-scaling-incoherence]]
 
 ## Connections
 
 - [[inverse-scaling-test-time-compute]] — Gema et al. 2025 — complementary finding: more test-time compute can actively degrade performance. Hot Mess shows failures become incoherent with scale; Inverse Scaling shows more compute can hurt. Both challenge "more compute = better"
 - [[thought-anchors]] — causal attribution within CoT traces; tool for investigating *where* incoherent failures originate inside a single reasoning chain
 - [[thought-branches]] — branch point detection in reasoning; tool for finding *where* reasoning could have diverged toward a different answer
-- [[research-inverse-scaling-incoherence]] — our research project applying these tools to explain *why* inverse scaling and incoherence occur mechanistically
+- [[inverse-scaling-incoherence]] — our research project applying these tools to explain *why* inverse scaling and incoherence occur mechanistically
 
 ## Code & Experiments
 

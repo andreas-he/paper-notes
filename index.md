@@ -18,6 +18,10 @@ This isn't a paper list — it's a thinking space. Each note captures not just w
 
 - [[hot-mess-of-ai]] — McKee et al. (ICLR 2026) — bias-variance decomposition shows model failures become more incoherent at scale
 
+## Research projects
+
+- [[inverse-scaling-incoherence]] — Mechanistic analysis of intra-trace incoherence behind inverse scaling
+
 ## Topics
 
 - [[topics/mechanistic-interpretability|Mechanistic Interpretability]]

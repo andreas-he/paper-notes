@@ -41,7 +41,7 @@ Both findings are safety-relevant: we need AI systems to be *more* reliable as t
 
 ## Our Take
 
-The *why* behind inverse scaling is the open question. We're pursuing intra-trace causal analysis as the entry point — identifying where in reasoning traces the model commits to answers, where it goes wrong, and what's happening mechanistically at those turning points. See [[research-inverse-scaling-incoherence]] for the full research plan.
+The *why* behind inverse scaling is the open question. We're pursuing intra-trace causal analysis as the entry point — identifying where in reasoning traces the model commits to answers, where it goes wrong, and what's happening mechanistically at those turning points. See [[inverse-scaling-incoherence]] for the full research plan.
 
 ## Open Questions
 
