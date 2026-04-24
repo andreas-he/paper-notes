@@ -1,0 +1,84 @@
+name: Deploy Quartz site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  QUARTZ_VERSION: v4.5.2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout notes content
+        uses: actions/checkout@v4
+        with:
+          path: notes
+          fetch-depth: 0
+
+      - name: Clone Quartz
+        run: |
+          git clone --depth 1 --branch "$QUARTZ_VERSION" https://github.com/jackyzha0/quartz.git quartz
+
+      - name: Copy notes content into Quartz
+        run: |
+          # Start with a clean content directory (Quartz ships example content we don't want)
+          rm -rf quartz/content
+          mkdir -p quartz/content
+          # Copy everything from the notes repo EXCEPT repo-level meta and Quartz config
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='_templates' \
+            --exclude='CLAUDE.md' \
+            --exclude='README.md' \
+            --exclude='quartz.config.ts' \
+            --exclude='quartz.layout.ts' \
+            --exclude='.gitignore' \
+            --exclude='.obsidian' \
+            notes/ quartz/content/
+          # Override Quartz's default config with ours
+          cp notes/quartz.config.ts quartz/quartz.config.ts
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        working-directory: quartz
+        run: npm ci
+
+      - name: Build Quartz site
+        working-directory: quartz
+        run: npx quartz build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: quartz/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

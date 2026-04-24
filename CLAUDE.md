@@ -1,6 +1,6 @@
 # Paper Notes — Agent Guide
 
-This repo (`andreas-he/paper-notes`) is the canonical publishing home for the
+This repo (`andreas-he/notes`) is the canonical publishing home for the
 AI safety journey: paper reading notes, longform posts, upskill write-ups,
 research project plans, and experiment artifacts — published as a
 [Quartz](https://quartz.jzhao.xyz/) site and also editable in Obsidian.
@@ -163,12 +163,50 @@ Template: `_templates/upskill-week.md`
 Posts, upskill entries, and other longform items use Quartz's native `draft`
 frontmatter. No custom staging pipeline:
 
-- `draft: true` — excluded from the Quartz build
+- `draft: true` — excluded from the Quartz build (via `Plugin.RemoveDrafts()`)
 - `draft: false` — published
 
-Publishing is `draft: true` → `draft: false` + commit. That's the whole
+Publishing is `draft: true` → `draft: false` + commit + push. That's the whole
 workflow. Paper notes and research project plans do NOT use `draft:` — they're
 research artifacts, always visible.
+
+### Deploy pipeline
+
+Publishing is fully automated. On every push to `main`, GitHub Actions
+(`.github/workflows/deploy.yml`) runs:
+
+1. Checks out this repo into `notes/`
+2. Clones Quartz at a pinned tag (`QUARTZ_VERSION` env var in the workflow)
+3. Copies notes content into `quartz/content/`, excluding `.github/`,
+   `_templates/`, `CLAUDE.md`, `README.md`, `quartz.config.ts`,
+   `quartz.layout.ts`, `.gitignore`, `.obsidian`
+4. Overrides `quartz/quartz.config.ts` with the one committed here
+5. Runs `npm ci && npx quartz build`
+6. Deploys `quartz/public/` to GitHub Pages
+
+Quartz is NOT vendored into this repo. That keeps this repo as pure content.
+To bump the Quartz version, edit `QUARTZ_VERSION` in the workflow.
+
+### Local preview
+
+To preview the site locally before pushing:
+
+```bash
+# From the notes repo root
+git clone --depth 1 --branch v4.5.2 https://github.com/jackyzha0/quartz.git /tmp/quartz-preview
+rm -rf /tmp/quartz-preview/content
+mkdir -p /tmp/quartz-preview/content
+rsync -a \
+  --exclude='.git' --exclude='.github' --exclude='_templates' \
+  --exclude='CLAUDE.md' --exclude='README.md' \
+  --exclude='quartz.config.ts' --exclude='quartz.layout.ts' \
+  --exclude='.gitignore' --exclude='.obsidian' \
+  ./ /tmp/quartz-preview/content/
+cp quartz.config.ts /tmp/quartz-preview/quartz.config.ts
+cd /tmp/quartz-preview && npm ci && npx quartz build --serve
+```
+
+The site will be served at `http://localhost:8080`. Node 22+ is required.
 
 Longform content (posts, upskill write-ups, essays) is what gets crossposted to
 LessWrong / AI Alignment Forum. Canonical URL stays on this site; crossposts
