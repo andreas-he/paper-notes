@@ -12,6 +12,7 @@ connections:
   - "[[hot-mess-of-ai]]"
   - "[[thought-anchors]]"
   - "[[thought-branches]]"
+  - "[[half-assing-it-with-everything-youve-got]]"
 code: ""
 ---
 
@@ -50,6 +51,7 @@ Investigates when giving reasoning models more test-time compute actually degrad
 - [[hot-mess-of-ai]] — complementary finding: Hot Mess = errors become incoherent with model scale; this = errors increase with reasoning scale
 - [[thought-anchors]] — tool for identifying which tokens in a reasoning trace drive the answer (could reveal *where* distraction/constraint loss happens)
 - [[thought-branches]] — tool for finding where reasoning diverges (could reveal *when* the model goes off-track)
+- [[half-assing-it-with-everything-youve-got]] — a structural rhyme outside ML: the same intuition being undercut (that more deliberation is weakly beneficial) applied to human effort allocation. Analogy only — no shared mechanism.
 
 ## Open Questions
 

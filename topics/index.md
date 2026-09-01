@@ -17,3 +17,5 @@ Cross-cutting themes that connect multiple papers. Each topic thread synthesizes
 ## Emerging
 
 <!-- Topics with fewer than 3 papers but growing -->
+
+- [[motivation-and-effort]] — target selection, effort allocation, and the motivational structures behind sustained research work
