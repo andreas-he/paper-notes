@@ -1,7 +1,7 @@
 ---
 title: "AI Safety Atlas — Chapter 1: Capabilities"
 authors: []
-year: 
+year:
 tags: []
 status: reading
 draft: true
@@ -11,7 +11,7 @@ connections: []
 
 # AI Safety Atlas — Chapter 1: Capabilities
 
-> **One-line takeaway:** 
+> **One-line takeaway:**
 
 ## Summary
 
@@ -28,14 +28,17 @@ connections: []
 ## Notes
 
 General notes and thoughts:
+
 - AI started narrow -> with LLMs AI becomes more "general". However, even this does not feel true since language is narrow. Current AI demos and use cases showcase how LLMs operate in the digital world by using language to write and run code. So this is not a general intelligence, but gets us quite far (imho).
 - capability and generality for defining intelligence
 
 Questions:
+
 - Are LLMs a viable path toward AGI? How about JEPA models: https://www.youtube.com/watch?v=kYkIdXwW2AE
 - why is it so hard to land on a shared definition of AGI?
 
 Questions during the course:
+
 - Talking about compute: I am hearing fundamentally different opinions ranging from bubble and overbuilding to compute (and memory shortage) for decades?
 - What is your take on orbital compute?
 - Today, I listened to a podcast and the claim was that if somebody reaches RSI and the recipe is "known" you are in a very bad place if you regulate RSI in your country (you could run it unregulated in space)?
@@ -43,8 +46,8 @@ Questions during the course:
 - What overhang might we currently have (i.e., data, compute, algorithms)?
 
 Interesting quotes:
-- "AGI can also be defined through a combination of time and scale - can AI match ‘n’ experts working together for time ‘t’.
 
+- "AGI can also be defined through a combination of time and scale - can AI match ‘n’ experts working together for time ‘t’.
 
 **AI Insight (p.1):**
 **Foundation models** are large models trained on broad data that can be adapted to many tasks — the term emphasizes architecture and training approach (pre-training on massive datasets, then fine-tuning). GPT-4, Claude, Gemini are all foundation models.
@@ -52,7 +55,6 @@ Interesting quotes:
 **Frontier models** are the most capable models at a given point in time — the term emphasizes competitive position. It's a moving label: today's frontier model is tomorrow's baseline.
 
 The overlap is large. Most frontier models are foundation models, but not all foundation models are frontier (e.g., an older GPT-3 is still a foundation model but no longer frontier). The chapter uses "foundation models" because it's describing the architectural shift from narrow to general-purpose systems — which is what matters for the capability story here.
-
 
 **AI Insight (p.1):**
 The chapter previews its own answer in the intro: it rejects binary AGI definitions in favor of two continuous axes — **capability** (how well) and **generality** (how many domains). The goal is statements like "performs at the 85th percentile across 30% of cognitive domains" — something measurable rather than a threshold you cross.
@@ -79,6 +81,7 @@ For your safety work, the continuous-axes framing is the more useful one — it 
 ## Connections
 
 <!-- How this paper relates to others we've read -->
+
 <!-- Use wikilinks: [[other-paper]] -->
 
 ## Open Questions
